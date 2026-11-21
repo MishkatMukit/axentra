@@ -31,3 +31,7 @@ coverage/
 axentra_engineering_specification.md
 frontend-design.md
 plan.md
+
+# Next.js generated files (re-created by next dev / next typegen)
+apps/client/next-env.d.ts
+apps/client/AGENTS.md

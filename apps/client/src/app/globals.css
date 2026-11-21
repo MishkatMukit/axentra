@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Brand tokens: see frontend-design.md section 2. "ink" is the brand indigo
+   (named to avoid overriding Tailwind's built-in indigo palette). */
+@theme {
+  --color-ink-950: #13073f;
+  --color-ink-900: #1a0653;
+  --color-mint-400: #01e1b1; /* accents on ink backgrounds only */
+  --color-mint-500: #00bd9b; /* primary action, success, progress */
+  --color-mint-700: #00806a; /* mint as text on white */
+
+  /* Semantic surface tokens (dark mode swaps these later) */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f5fa;
+  --color-text: #13073f;
+  --color-text-muted: #5b5672;
+  --color-border: #e4e2ec;
+
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}

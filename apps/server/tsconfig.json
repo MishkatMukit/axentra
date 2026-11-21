@@ -3,6 +3,7 @@
   "compilerOptions": {
     // Resolve @axentra/contracts to its TypeScript source so typecheck needs no prior build
     "customConditions": ["development"],
+    "allowImportingTsExtensions": true,
     "types": ["node"],
     "noEmit": true
   },

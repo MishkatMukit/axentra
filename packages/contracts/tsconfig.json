@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
+    // Contracts run in both Node and the browser; DOM provides shared globals like TextEncoder
+    "lib": ["ES2023", "DOM"],
     "outDir": "dist",
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true

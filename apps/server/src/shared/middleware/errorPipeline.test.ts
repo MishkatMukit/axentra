@@ -88,7 +88,7 @@ describe("app", () => {
     expect(unsafe.body.requestId).toMatch(/^req_[0-9a-f-]{36}$/);
   });
 
-  it("reports degraded health when the database is unreachable", async () => {
+  it.skipIf(process.env.TEST_DATABASE_URL)("reports degraded health when the database is unreachable", async () => {
     const res = await request(createApp()).get("/api/v1/health");
 
     expect(res.status).toBe(503);

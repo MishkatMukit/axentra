@@ -49,7 +49,8 @@ export default defineConfig([
     },
   },
   {
-    files: ["apps/server/src/modules/**/*.repository.ts"],
+    // Tests may query the database directly to verify what a flow wrote
+    files: ["apps/server/src/modules/**/*.repository.ts", "apps/server/src/**/*.test.ts"],
     rules: { "no-restricted-imports": "off" },
   },
 

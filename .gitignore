@@ -26,3 +26,8 @@ Thumbs.db
 
 # Test output
 coverage/
+
+# Private planning docs (kept locally, not published)
+axentra_engineering_specification.md
+frontend-design.md
+plan.md

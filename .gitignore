@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+.next/
+out/
+*.tsbuildinfo
+
+# Prisma generated client (spec: apps/server/src/generated/prisma)
+**/src/generated/prisma/
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code personal settings (project settings.json is shared)
+.claude/settings.local.json
+
+# Logs and OS noise
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Test output
+coverage/

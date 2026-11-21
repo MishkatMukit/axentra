@@ -26,6 +26,13 @@ export const AuthUserSchema = z.object({
   hasGoogleLinked: z.boolean(),
 });
 
+// Returned by register, login, and refresh. The refresh token travels only as an HTTP-only cookie.
+export const AuthSessionSchema = z.object({
+  user: AuthUserSchema,
+  accessToken: z.string(),
+});
+
 export type RegisterInput = z.infer<typeof RegisterSchema>;
+export type AuthSession = z.infer<typeof AuthSessionSchema>;
 export type LoginInput = z.infer<typeof LoginSchema>;
 export type AuthUser = z.infer<typeof AuthUserSchema>;

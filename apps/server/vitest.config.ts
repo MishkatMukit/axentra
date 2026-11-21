@@ -9,6 +9,7 @@ export default defineConfig({
       NODE_ENV: "test",
       // Integration tests run only when TEST_DATABASE_URL is set; otherwise the DB is unreachable on purpose
       DATABASE_URL: process.env.TEST_DATABASE_URL ?? "postgresql://test:test@127.0.0.1:1/axentra_test",
+      JWT_ACCESS_SECRET: "test-only-secret-at-least-32-characters-long",
     },
   },
 });

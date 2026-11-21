@@ -9,7 +9,8 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "dev": "npm -w apps/server run dev",
+    "build": "npm -w packages/contracts run build && npm -w apps/server run build",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "devDependencies": {

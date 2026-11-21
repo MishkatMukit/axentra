@@ -1,0 +1,25 @@
+model Profile {
+  id     String @id @default(cuid())
+  userId String @unique // Enforces strict 1:1 relation with identity.User
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fullName    String
+  avatarUrl   String? // Seeded from Google photo on OAuth signup or custom Cloudinary URL
+  headline    String? // e.g., "Full-Stack & Backend Engineer"
+  bio         String? @db.Text
+  location    String?
+  targetRoles String[] // e.g., ["Backend Engineer", "Full-Stack Engineer"]
+
+  githubUrl    String?
+  linkedinUrl  String?
+  portfolioUrl String?
+
+  // Scheduling & daily boundary preferences used by Habits & Analytics
+  timezone      String @default("Asia/Dhaka")
+  dayCutoffHour Int    @default(4) // 04:00 AM rollover for late-night study sessions
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@schema("profile")
+}

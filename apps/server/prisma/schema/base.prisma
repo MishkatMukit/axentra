@@ -1,0 +1,12 @@
+generator client {
+  provider            = "prisma-client"
+  output              = "../../src/generated/prisma"
+  moduleFormat        = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Add each module's schema here when its models land (spec section 4)
+  schemas  = ["identity", "profile"]
+}

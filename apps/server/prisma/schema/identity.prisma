@@ -1,0 +1,48 @@
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+  BOTH
+
+  @@schema("identity")
+}
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  passwordHash String? // Nullable for Google-only OAuth accounts
+  authProvider AuthProvider @default(LOCAL)
+
+  // Third-party OAuth verification fields (Passport.js GoogleStrategy)
+  googleId      String? @unique // Google 'sub' identifier used to verify social auth
+  googleEmail   String? // Verified email returned by Google OAuth
+  emailVerified Boolean @default(false)
+
+  isActive    Boolean   @default(true)
+  lastLoginAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Strict 1:1 relation to separated profile schema
+  profile       Profile?
+  refreshTokens RefreshToken[]
+
+  // Ownership back-relations (spec section 4) are added as each module's models land
+
+  @@index([authProvider])
+  @@schema("identity")
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  userAgent String?
+  ipAddress String?
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@schema("identity")
+}

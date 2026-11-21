@@ -10,7 +10,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test": "vitest run"
   },
   "dependencies": {
     "@axentra/contracts": "*",
@@ -24,8 +25,11 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^24.19.2",
+    "@types/supertest": "^7.2.1",
     "pino-pretty": "^13.2.0",
     "prisma": "7.10.1",
-    "tsx": "^4.23.15"
+    "supertest": "^7.3.2",
+    "tsx": "^4.23.15",
+    "vitest": "^5.1.1"
   }
 }
